@@ -1,5 +1,5 @@
-import { storageService } from '../../../services/storage.service'
-import { demoDataService } from './demoData.service'
+import { storageService } from '../../../services/storage.service.js'
+import { demoDataService } from './demoData.service.js'
 
 export const mailService = {
     query

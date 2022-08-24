@@ -8,11 +8,11 @@ export class MailApp extends React.Component {
     }
 
     componentDidMount() {
-        this.loadEmails()
+        this.loadMails()
 
     }
 
-    loadEmails = () => {
+    loadMails = () => {
         mailService.query()
             .then((emails) => this.setState({ emails }))
     }
