@@ -1,7 +1,7 @@
 import { storageService } from '../../../services/storage.service'
 import { demoDataService } from './demoData.service'
 
-export const emailService = {
+export const mailService = {
     query
 }
 

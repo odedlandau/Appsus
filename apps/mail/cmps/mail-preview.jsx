@@ -1,6 +1,6 @@
 
 
-export function EmailPreview({ email }) {
+export function MailPreview({ email }) {
 
     return <tr className="email-preview">
         <td>{email.from.userName}</td>
