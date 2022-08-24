@@ -1,6 +1,6 @@
 
-import {MailList} from '../cmps/mail-list.jsx'
-import {mailService} from '../services/mail.service.js'
+import { MailList } from '../cmps/mail-list.jsx'
+import { mailService } from '../services/mail.service.js'
 
 export class MailApp extends React.Component {
     state = {

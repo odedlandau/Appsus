@@ -1,0 +1,10 @@
+.note-preview {
+    padding: 10px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.43);
+}
+
+.note-preview:hover {
+    cursor: pointer;
+}
