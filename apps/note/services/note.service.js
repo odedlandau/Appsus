@@ -1,54 +1,57 @@
+// import { notesData } from './notes-data.js'
 import { storageService } from '../../../services/storage.service.js'
 
 export const noteService = {
     query,
-
+    getById,
 }
 
 const KEY = "notesDB"
+// const gNotes = notesData.getNotes
+
 const gNotes = [
     {
         id: "n101",
         type: "note-txt",
         isPinned: true,
-        info: { txt: "Fullstack Me Baby!" }
+        info: {
+            txt: "Fullstack Me Baby!"
+        }
     },
     {
-        id: "n211",
+        id: "n102",
         type: "note-txt",
         isPinned: true,
-        info: { txt: "Puki!" }
+        info: {
+            txt: "Fullstack Me Baby!"
+        }
     },
-    // {
-    //     id: "n102",
-    //     type: "note-img",
-    //     info: {
-    //         url: "http://some-img/me",
-    //         title: "Bobi and Me"
-    //     },
-    //     style: { backgroundColor: "#00d" }
-    // },
-    // {
-    //     id: "n103",
-    //     type: "note-todos",
-    //     info: {
-    //         label: "Get my stuff together",
-    //         todos: [{ txt: "Driving liscence", doneAt: null }, {
-    //             txt: "Coding power",
-    //             doneAt: 187111111
-    //         }]
-    //     }
-    // }
-];
+]
 
-function query() {
+function query(filterBy) {
     let notes = _loadFromStorage()
     if (!notes) {
         notes = gNotes
         _saveToStorage(notes)
     }
+    if (filterBy) {
+        let { type } = filterBy
+        console.log('filterBy from service', filterBy);
+        if (!type) type = 'note-txt';
+        notes = notes.filter(note => (
+            note.info.txt.toUpperCase().includes(search.toUpperCase()) &&
+            note.type === type
+        ))
+    }
 
     return Promise.resolve(notes)
+}
+
+function getById(noteId) {
+    if (!noteId) return Promise.resolve(null)
+    const notes = _loadFromStorage()
+    const note = notes.find(note => noteId === note.id)
+    return Promise.resolve(note)
 }
 
 function _saveToStorage(notes) {
