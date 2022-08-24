@@ -1,15 +1,13 @@
-const { Link } = ReactRouterDOM
+// const { Link } = ReactRouterDOM
 
 export function NotePreview({ note }) {
 
   return (
-    <h3>{note.type}</h3>
-
+      <div className="note-preview">
+        {note.type}
+      </div>
   )
 }
 
-{/* <Link to={`/note/${note.id}`}>
-<div className="note-preview">
-  
-</div>
-</Link> */}
+
+

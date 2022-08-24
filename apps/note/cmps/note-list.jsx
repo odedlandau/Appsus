@@ -1,4 +1,4 @@
-import { NotePreview } from './note-preview.jsx'
+import { NotePreview } from "./note-preview.jsx"
 
 export function NoteList({ notes }) {
   return (
@@ -9,3 +9,4 @@ export function NoteList({ notes }) {
     </section>
   )
 }
+
