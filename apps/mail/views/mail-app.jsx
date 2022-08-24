@@ -1,5 +1,6 @@
 
-import { mailService } from '../services/mail.service.js'
+import {MailList} from '../cmps/mail-list.jsx'
+import {mailService} from '../services/mail.service.js'
 
 export class MailApp extends React.Component {
     state = {
@@ -12,7 +13,7 @@ export class MailApp extends React.Component {
     }
 
     loadEmails = () => {
-        emailService.query()
+        mailService.query()
             .then((emails) => this.setState({ emails }))
     }
 
