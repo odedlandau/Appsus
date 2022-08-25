@@ -1,18 +1,20 @@
+import { utilService } from '../../../services/util.service.js'
+
 export const demoDataService = {
     getRecievedEmails
 }
 
-const sentEmail = [{
-    id: 'e101',
-    subject: 'Miss you!',
-    body: 'Would love to catch up sometimes',
-    isRead: false,
-    sentAt: 1551133930594,
-    to: 'momo@momo.com'
-}]
+// const sentEmail = [{
+//     id: 'e101',
+//     subject: 'Miss you!',
+//     body: 'Would love to catch up sometimes',
+//     isRead: false,
+//     sentAt: 1551133930594,
+//     to: 'momo@momo.com'
+// }]
 
 const recievedEmails = [{
-    id: 'e101',
+    id: utilService.makeId(),
     subject: 'Miss you!',
     body: 'Would love to catch up sometimes',
     isRead: false,
@@ -23,7 +25,7 @@ const recievedEmails = [{
     }
 },
 {
-    id: 'e102',
+    id: utilService.makeId(),
     subject: 'New SALE',
     body: 'Check out our products',
     isRead: false,
@@ -34,7 +36,7 @@ const recievedEmails = [{
     }
 },
 {
-    id: 'e103',
+    id: utilService.makeId(),
     subject: 'Subscribe to newsletter',
     body: 'come and read our new magazine',
     isRead: false,
@@ -45,7 +47,7 @@ const recievedEmails = [{
     }
 },
 {
-    id: 'e104',
+    id: utilService.makeId(),
     subject: 'Your storage is running out',
     body: 'please renew your subscription',
     isRead: false,
@@ -56,7 +58,7 @@ const recievedEmails = [{
     }
 },
 {
-    id: 'e105',
+    id: utilService.makeId(),
     subject: 'Reset password',
     body: 'Enter the link below to reset your password',
     isRead: false,
