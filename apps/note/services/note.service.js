@@ -1,10 +1,12 @@
 import { notesData } from './notes-data.js'
 import { storageService } from '../../../services/storage.service.js'
+import { utilService } from "../../../services/util.service.js"
 
 export const noteService = {
     query,
     getById,
     remove,
+    save,
 }
 
 const KEY = "notesDB"
@@ -42,6 +44,38 @@ function remove(noteId) {
     notes = notes.filter(note => note.id !== noteId)
     _saveToStorage(notes)
     return Promise.resolve()
+}
+
+function save(note) {
+    if (note.id) return _update(note)
+    else return _add(note)
+}
+
+function _add({ type }) {
+    let notes = _loadFromStorage()
+    const note = _createNote(type)
+    notes = [note, ...notes]
+    _saveToStorage(notes)
+    return Promise.resolve(note)
+}
+
+function _update(noteToUpdate) {
+    let notes = _loadFromStorage()
+    notes = notes.map(note => note.id === noteToUpdate.id ? noteToUpdate : note)
+    _saveToStorage(notes)
+    return Promise.resolve(noteToUpdate)
+}
+
+function _createNote(type) {
+    return {
+        id: utilService.makeId(),
+        type,
+        details: {
+            txt,
+            color: 'white'
+        },
+        isNotePinned: false
+    }
 }
 
 function _saveToStorage(notes) {
