@@ -25,10 +25,10 @@ export class MailApp extends React.Component {
                 console.log('Removed!')
                 const mails = this.state.mails.filter(mail => mail.id !== mailId)
                 this.setState({ mails })
-                // showSuccessMsg('Car removed')
-                
+                // showSuccessMsg('Mail removed')
+
             })
-           
+
     }
 
     render() {

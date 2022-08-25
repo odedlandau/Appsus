@@ -1,5 +1,5 @@
 
-import { mailService } from '../services/mail.service'
+import { mailService } from '../services/mail.service.js'
 
 export class AddMail extends React.Component {
 
@@ -21,6 +21,8 @@ export class AddMail extends React.Component {
 
     onAddMail = (ev) => {
         ev.preventDefault()
+        // this.props.history.push('/mail')
+       console.log('state from onAddMAil', this.state.mail);
         mailService.add(this.state.mail)
             .then(() => {
                 this.props.history.push('/mail')
