@@ -26,23 +26,39 @@ const gNotes = [
             txt: "Fullstack Me Baby!"
         }
     },
+    {
+        id: "n103",
+        type: "note-txt",
+        isPinned: true,
+        info: {
+            txt: "Fullstack Me Baby!"
+        }
+    },
+    {
+        id: "n104",
+        type: "note-txt",
+        isPinned: true,
+        info: {
+            txt: "Fullstack Me Baby!"
+        }
+    },
 ]
 
-function query(filterBy) {
+function query() {
     let notes = _loadFromStorage()
     if (!notes) {
         notes = gNotes
         _saveToStorage(notes)
     }
-    if (filterBy) {
-        let { type } = filterBy
-        console.log('filterBy from service', filterBy);
-        if (!type) type = 'note-txt';
-        notes = notes.filter(note => (
-            note.info.txt.toUpperCase().includes(search.toUpperCase()) &&
-            note.type === type
-        ))
-    }
+    // if (filterBy) {
+    //     let { type } = filterBy
+    //     console.log('filterBy from service', filterBy);
+    //     if (!type) type = 'note-txt';
+    //     notes = notes.filter(note => (
+    //         note.info.txt.toUpperCase().includes(search.toUpperCase()) &&
+    //         note.type === type
+    //     ))
+    // }
 
     return Promise.resolve(notes)
 }

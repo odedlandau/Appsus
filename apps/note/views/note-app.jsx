@@ -6,9 +6,9 @@ export class NoteApp extends React.Component {
 
     state = {
         notes: [],
-        filterBy: {
-            type: '',
-        },
+        // filterBy: {
+        //     type: '',
+        // },
     }
 
     componentDidMount() {
@@ -20,18 +20,18 @@ export class NoteApp extends React.Component {
             .then((notes) => this.setState({ notes }))
     }
 
-    onSetFilter = (filterBy) => {
-        this.setState({ filterBy }, () => {
-            this.loadNotes()
-        })
-    }
+    // onSetFilter = (filterBy) => {
+    //     this.setState({ filterBy }, () => {
+    //         this.loadNotes()
+    //     })
+    // }
 
     render() {
         const { notes, filterBy } = this.state
         return (
             <section className="note-app">
-                <NoteFilter onSetFilter={this.onSetFilter} />
-                <NoteList notes={notes} filterBy={filterBy} />
+                {/* <NoteFilter onSetFilter={this.onSetFilter} /> */}
+                <NoteList notes={notes}  />
             </section>
         )
     }
