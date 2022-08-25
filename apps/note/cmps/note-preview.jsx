@@ -1,19 +1,25 @@
 
-const {Link} = ReactRouterDOM
-
 export function NotePreview({ note }) {
 
-    return <article >
+  // function getNoteType(type) {
+  //   switch (type) {
+  //     case 'note-txt':
+  //       return NoteTxt
+  //     case 'note-img':
+  //       return NoteImg
+  //     case 'note-todos':
+  //       return NoteTodos
+  //     case 'note-video':
+  //       return NoteVideo
+  //   }
+  // }
+  // const DynamicCmp = getNoteType(note.type)
 
-            <h3>Note : {note.type}</h3>
-            
-            <Link to={"/note/" + note.id}>
-              <div>Note...</div>
-            {/* <div className="img-container">
-                <img src={`../assets/img/${note.img}.jpg`} />
-            </div> */}
-            </Link>
-        </article>
+
+  return <section className="note-preview">
+    <h3>Note : {note.type}</h3>
+    {/* <DynamicCmp/> */}
+  </section>
 }
 
 

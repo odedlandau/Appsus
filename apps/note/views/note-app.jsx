@@ -1,14 +1,15 @@
 
+import { NoteAdd } from '../cmps/note-add.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
 import { NoteFilter } from '../cmps/note-filter.jsx'
 import { noteService } from '../services/note.service.js'
 
-const { Link } = ReactRouterDOM
 export class NoteApp extends React.Component {
 
     state = {
         notes: [],
         filterBy: null,
+        selectedNote: null,
     }
 
     componentDidMount() {
@@ -36,17 +37,31 @@ export class NoteApp extends React.Component {
             })
     }
 
+    onAddNote = (note) => {
+        noteService.save(note)
+            .then(this.loadNotes())
+    }
+
+    onPinNote = (id) => {
+        noteService.togglePin(id)
+            .then(this.loadNotes())
+        console.log('pin was toggled:')
+    }
+
     render() {
         const { notes } = this.state
-        const { onSetFilter, onRemoveNote } = this
         return <section className="note-app">
-            My-Notes
-            <Link to="/note/edit"><button>Add note</button></Link>
+
             <NoteFilter onSetFilter={this.onSetFilter} />
-            <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+            <div className="note-container">
+                <NoteAdd onAddNote={this.onAddNote} />
+                <NoteList notes={notes} onRemoveNote={this.onRemoveNote} />
+            </div>
         </section>
     }
 }
+
+
 
 
 
