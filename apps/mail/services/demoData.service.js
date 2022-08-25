@@ -75,6 +75,6 @@ const loggedinUser = {
     fullname: 'Mahatma Appsus'
 }
 
-function getRecievedEmails(){
+function getRecievedEmails() {
     return recievedEmails
-  }
+}
