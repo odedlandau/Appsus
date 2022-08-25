@@ -1,13 +1,20 @@
 import { MailPreview } from "./mail-preview.jsx";
 
 
-export function MailList({ emails }) {
-    console.log('from email-list', emails);
-    return <table className="mail-list">
+export function MailList({ mails, onRemoveMail }) {
+    console.log('mails', mails);
+    console.log('onRemoveMail', onRemoveMail);
+    return <section className="mail-list">
 
-        {emails.map(email => <MailPreview key={email.id} email={email} />)}
+        {mails.map(mail =>
+            <div>
+                <button onClick={()=>onRemoveMail(mail.id)}>X</button>
+                <MailPreview key={mail.id} email={mail} />
+                <hr />
+            </div>
+        )}
 
-    </table>
+    </section>
 
-   
+
 }

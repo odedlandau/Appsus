@@ -2,23 +2,31 @@ import { storageService } from '../../../services/storage.service.js'
 import { demoDataService } from './demoData.service.js'
 
 export const mailService = {
-    query
+    query,
+    remove
 }
 
-const KEY = 'emailsDB'
+const KEY = 'mailsDB'
 
 function query() {
-    let emails = _loadFromStorage()
-    if (!emails) {
-        emails = demoDataService.getRecievedEmails()
-        _saveToStorage(emails)
+    let mails = _loadFromStorage()
+    if (!mails) {
+        mails = demoDataService.getRecievedEmails()
+        _saveToStorage(mails)
     }
 
-    return Promise.resolve(emails)
+    return Promise.resolve(mails)
 }
 
-function _saveToStorage(emails) {
-    storageService.saveToStorage(KEY, emails)
+function remove(mailId) {
+    let mails = _loadFromStorage()
+    mails = mails.filter(mail => mail.id !== mailId)
+    _saveToStorage(mails)
+    return Promise.resolve()
+}
+
+function _saveToStorage(mails) {
+    storageService.saveToStorage(KEY, mails)
 }
 
 function _loadFromStorage() {
