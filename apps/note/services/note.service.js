@@ -1,4 +1,4 @@
-// import { notesData } from './notes-data.js'
+import { notesData } from './notes-data.js'
 import { storageService } from '../../../services/storage.service.js'
 
 export const noteService = {
@@ -7,42 +7,8 @@ export const noteService = {
 }
 
 const KEY = "notesDB"
-// const gNotes = notesData.getNotes
+const gNotes = notesData.getNotes()
 
-const gNotes = [
-    {
-        id: "n101",
-        type: "note-txt",
-        isPinned: true,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },
-    {
-        id: "n102",
-        type: "note-txt",
-        isPinned: true,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },
-    {
-        id: "n103",
-        type: "note-txt",
-        isPinned: true,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },
-    {
-        id: "n104",
-        type: "note-txt",
-        isPinned: true,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },
-]
 
 function query() {
     let notes = _loadFromStorage()
