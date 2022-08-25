@@ -1,4 +1,6 @@
 .note-preview {
+    background-color: #d9fad7;
+    border-radius: 10px;
     padding: 10px;
     text-align: center;
     transition: 0.3s;
