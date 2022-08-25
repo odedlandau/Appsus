@@ -4,7 +4,7 @@ import { mailService } from '../services/mail.service.js'
 
 export class MailApp extends React.Component {
     state = {
-        emails: []
+        mails: []
     }
 
     componentDidMount() {
@@ -14,13 +14,26 @@ export class MailApp extends React.Component {
 
     loadMails = () => {
         mailService.query()
-            .then((emails) => this.setState({ emails }))
+            .then((mails) => this.setState({ mails }))
+    }
+
+    onRemoveMail = (mailId) => {
+        mailService.remove(mailId)
+            .then(() => {
+                console.log('Removed!')
+                const mails = this.state.mails.filter(mail => mail.id !== mailId)
+                this.setState({ mails })
+                // showSuccessMsg('Car removed')
+                
+            })
+           
     }
 
     render() {
-        const { emails } = this.state
+        const { mails } = this.state
+        const { onRemoveMail } = this
         return <section className="mail-app">
-            <MailList emails={emails} />
+            <MailList mails={mails} onRemoveMail={onRemoveMail} />
         </section>
 
     }
