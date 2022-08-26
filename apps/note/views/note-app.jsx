@@ -17,46 +17,41 @@ export class NoteApp extends React.Component {
     }
 
     loadNotes = () => {
-        noteService.query(this.state.filterBy)
-            .then((notes) => this.setState({ notes }))
+        noteService.query()
+            .then(notes => this.setState({ notes }))
     }
 
     onSetFilter = (filterBy) => {
-        this.setState({ filterBy }, this.loadNotes)
+        this.setState({ filterBy }, () => {
+            this.loadNotes()
+        })
     }
 
     onRemoveNote = (noteId) => {
-        noteService.remove(noteId)
+        noteService.removeNote(noteId)
             .then(() => {
-                console.log('Removed!')
-                const notes = this.state.notes.filter(note => note.id !== noteId)
+                let { notes } = this.state
+                notes = notes.filter(note => note.id !== noteId)
                 this.setState({ notes })
-            })
-            .catch(err => {
-                console.log('Problem!!', err)
             })
     }
 
     onAddNote = (note) => {
-        noteService.save(note)
+        noteService.addNote(note)
             .then(this.loadNotes())
     }
 
-    onPinNote = (id) => {
-        noteService.togglePin(id)
-            .then(this.loadNotes())
-        console.log('pin was toggled:')
+    onToggleTodo = (noteId, todoIdx) => {
+        noteService.toggleTodo(noteId, todoIdx)
+            .then(this.loadNotes)
     }
 
     render() {
         const { notes } = this.state
         return <section className="note-app">
-
             <NoteFilter onSetFilter={this.onSetFilter} />
-            <div className="note-container">
-                <NoteAdd onAddNote={this.onAddNote} />
-                <NoteList notes={notes} onRemoveNote={this.onRemoveNote} />
-            </div>
+            <NoteAdd onAddNote={this.onAddNote} />
+            <NoteList notes={notes} onRemoveNote={this.onRemoveNote} onToggleTodo={this.onToggleTodo} />
         </section>
     }
 }

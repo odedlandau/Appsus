@@ -51,7 +51,7 @@ export class NoteFilter extends React.Component {
                 />
                 <button>Filter</button>
             </form>
-            <button className="search-btn" onClick={this.goSearch}>Go Search</button>
+            <button className="search-btn" onClick={this.goSearch}>Search</button>
         </section>
     }
 }

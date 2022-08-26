@@ -41,6 +41,17 @@ function getNotes() {
                     ]
                 }
             },
+            {
+                id: "n104",
+                type: "note-img",
+                info: {
+                    url: "https://pngimg.com/uploads/acorn/acorn_PNG37022.png",
+                    title: ""
+                },
+                style: {
+                    backgroundColor: "light-blue"
+                }
+            },
         ]
     )
 }

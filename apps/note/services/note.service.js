@@ -5,30 +5,39 @@ import { utilService } from "../../../services/util.service.js"
 export const noteService = {
     query,
     getById,
-    remove,
-    save,
+    removeNote,
+    addNote,
 }
 
 const KEY = "notesDB"
 const gNotes = notesData.getNotes()
 
 
-function query(filterBy) {
-    let notes = _loadFromStorage()
+// function query(filterBy) {
+//     let notes = _loadFromStorage()
+//     if (!notes) {
+//         notes = gNotes
+//         _saveToStorage(notes)
+//     }
+//     if (filterBy) {
+//         let { type } = filterBy
+//         console.log('filterBy from service', filterBy);
+//         if (!type) type = 'note-txt';
+//         notes = notes.filter(note => (
+//             note.type.includes(type)
+
+//         ))
+//     }
+
+//     return Promise.resolve(notes)
+// }
+
+function query() {
+    let notes = storageService.loadFromStorage(KEY)
     if (!notes) {
         notes = gNotes
-        _saveToStorage(notes)
+        storageService.saveToStorage(KEY, notes)
     }
-    if (filterBy) {
-        let { type } = filterBy
-        console.log('filterBy from service', filterBy);
-        if (!type) type = 'note-txt';
-        notes = notes.filter(note => (
-            note.type.includes(type)
-
-        ))
-    }
-
     return Promise.resolve(notes)
 }
 
@@ -39,7 +48,20 @@ function getById(noteId) {
     return Promise.resolve(note)
 }
 
-function remove(noteId) {
+function addNote(note) {
+    note.id = utilService.makeId()
+    const notes = _loadFromStorage()
+    if (note.type === 'note-todos') {
+        let todos = note.info.todos.split(',')
+        todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null }))
+        note.info.todos = todos
+    }
+    notes.unshift(note)
+    _saveToStorage(notes)
+    return Promise.resolve()
+}
+
+function removeNote(noteId) {
     let notes = _loadFromStorage()
     notes = notes.filter(note => note.id !== noteId)
     _saveToStorage(notes)
