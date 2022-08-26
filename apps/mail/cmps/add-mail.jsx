@@ -22,7 +22,6 @@ export class AddMail extends React.Component {
     onAddMail = (ev) => {
         ev.preventDefault()
         // this.props.history.push('/mail')
-       console.log('state from onAddMAil', this.state.mail);
         mailService.add(this.state.mail)
             .then(() => {
                 this.props.history.push('/mail')
@@ -50,7 +49,7 @@ export class AddMail extends React.Component {
 
                 <label htmlFor="body">body:</label>
                 <textarea id="body" name="body" value={body} rows="6" cols="50" onChange={handleChange}>
-                    
+
                 </textarea>
                 <button>Send</button>
             </form>

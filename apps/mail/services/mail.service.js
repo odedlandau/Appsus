@@ -10,11 +10,19 @@ export const mailService = {
 
 const KEY = 'mailsDB'
 
-function query() {
+function query(filterBy) {
     let mails = _loadFromStorage()
     if (!mails) {
         mails = demoDataService.getRecievedEmails()
         _saveToStorage(mails)
+    }
+
+    if (filterBy) {
+        let { search } = filterBy
+        mails = mails.filter(mail => (
+            mail.subject.includes(search) ||
+            mail.from.userName.includes(search)
+        ))
     }
 
     return Promise.resolve(mails)
@@ -28,7 +36,6 @@ function remove(mailId) {
 }
 
 function add({ from, subject, body }) {
-    console.log('hello from mail service');
     let mails = _loadFromStorage()
     const mail = _createMail(from, subject, body)
     mails = [mail, ...mails]

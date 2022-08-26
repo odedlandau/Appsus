@@ -1,11 +1,12 @@
 
 
-export function MailPreview({ email }) {
+export function MailPreview({ mail, onRemoveMail }) {
 
-    return <section className="mail-preview">
-        <h2>{email.from.userName}</h2>
-        <h2>{email.subject}</h2>
-        <h2>{email.sentAt}</h2>
-    </section>
+    return <tr>
+        <td><button onClick={() => onRemoveMail(mail.id)}>X</button></td>
+        <td>{mail.from.userName}</td>
+        <td>{mail.subject}</td>
+        <td>{mail.sentAt}</td>
+    </tr>
 
-}
+}   
