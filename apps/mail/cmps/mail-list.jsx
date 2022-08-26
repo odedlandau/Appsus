@@ -2,7 +2,7 @@ import { MailPreview } from "./mail-preview.jsx";
 
 
 export function MailList({ mails, onRemoveMail }) {
-        return <table className="mail-list">
+        return <section className="mail-list">
         {mails.map(mail => <MailPreview key={mail.id} mail={mail} onRemoveMail={onRemoveMail} />)}
 
         {/* {mails.map(mail =>
@@ -13,7 +13,7 @@ export function MailList({ mails, onRemoveMail }) {
             </ul>
         )} */}
 
-    </table>
+    </section>
 
 
 }

@@ -1,3 +1,56 @@
-.mail-preview td{
-    border: 1px solid black;
+.mail-preview-option {
+    display: flex;
+    align-items: center;
+}
+
+.mail-preview-option .material-icons{
+    margin: 5px;
+
+}
+
+.mail-preview{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid whitesmoke;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.mail-preview:hover{
+    border-top: 1px solid whitesmoke;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.24);
+}
+
+.mail-preview-message{
+    display: flex;
+    flex: 0.8;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.mail-preview-message h4{
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mail-preview-title{
+    font-size: 1rem;
+    flex: 0.3;
+}
+
+.mail-preview-time{
+    padding-right: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.mail-preview-desc{
+    font-weight: 400;
+    color: grey;
+    margin-left: 5px;
 }

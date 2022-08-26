@@ -1,6 +1,7 @@
 
 import { MailFilter } from '../cmps/mail-filter.jsx'
 import { MailList } from '../cmps/mail-list.jsx'
+import { SideBar } from '../cmps/side-bar.jsx'
 import { mailService } from '../services/mail.service.js'
 
 const { Link } = ReactRouterDOM
@@ -17,7 +18,7 @@ export class MailApp extends React.Component {
     }
 
     loadMails = () => {
-        mailService.query()
+        mailService.query(this.state.filterBy)
             .then((mails) => this.setState({ mails }))
     }
 
@@ -34,16 +35,20 @@ export class MailApp extends React.Component {
     }
 
     onSetFilter = (filterBy) => {
-        this.setState({ filterBy }, this.loadCars)
+        console.log('filterBy', filterBy);
+        this.setState({ filterBy }, this.loadMails)
     }
 
     render() {
         const { mails } = this.state
         const { onRemoveMail } = this
         return <section className="mail-app">
-            <Link to="/mail/add"><button>Compose +</button></Link>
             <MailFilter onSetFilter={this.onSetFilter} />
-            <MailList mails={mails} onRemoveMail={onRemoveMail} />
+            <section className="main-body">
+                <SideBar />
+                {/* <Link to="/mail/add"><button>Compose +</button></Link> */}
+                <MailList mails={mails} onRemoveMail={onRemoveMail} />
+            </section>
         </section>
 
     }

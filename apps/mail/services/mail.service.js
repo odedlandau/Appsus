@@ -13,7 +13,7 @@ const KEY = 'mailsDB'
 function query(filterBy) {
     let mails = _loadFromStorage()
     if (!mails) {
-        mails = demoDataService.getRecievedEmails()
+        mails = demoDataService.getMails()
         _saveToStorage(mails)
     }
 
@@ -21,7 +21,7 @@ function query(filterBy) {
         let { search } = filterBy
         mails = mails.filter(mail => (
             mail.subject.includes(search) ||
-            mail.from.userName.includes(search)
+            mail.user.userName.includes(search)
         ))
     }
 
@@ -35,25 +35,27 @@ function remove(mailId) {
     return Promise.resolve()
 }
 
-function add({ from, subject, body }) {
+function add({ sendTo, subject, body }) {
     let mails = _loadFromStorage()
-    const mail = _createMail(from, subject, body)
+    const mail = _createMail(sendTo, subject, body)
     mails = [mail, ...mails]
     _saveToStorage(mails)
     return Promise.resolve(mail)
 }
 
-function _createMail(from, subject, body) {
+function _createMail(sendTo, subject, body) {
     return {
         id: utilService.makeId(),
         subject: subject,
+        desc: '',
         body: body,
         isRead: false,
         sentAt: 1551133930594,
-        from: {
-            email: from,
+        user: {
+            email: sendTo,
             userName: 'Oded Landau'
-        }
+        },
+        isSent: true
     }
 }
 

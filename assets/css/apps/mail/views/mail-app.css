@@ -1,0 +1,9 @@
+.main-body {
+    display: flex;
+    height: 100vh;
+}
+
+.mail-app {
+    height: 100vh;
+    overflow-y: hidden;
+}

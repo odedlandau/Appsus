@@ -1,6 +1,5 @@
 .mail-list{
-   border-collapse: collapse;
-   border: 1px solid black;
-   margin: auto;
+   flex: 1;
+   overflow: scroll;
    
 }

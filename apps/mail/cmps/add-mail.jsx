@@ -5,7 +5,7 @@ export class AddMail extends React.Component {
 
     state = {
         mail: {
-            from: '',
+            sendTo: '',
             subject: '',
             body: ''
         }
@@ -30,14 +30,14 @@ export class AddMail extends React.Component {
 
 
     render() {
-        const { from, subject, body } = this.state.mail
+        const { sendTo, subject, body } = this.state.mail
         const { onAddMail, handleChange } = this
         return <section className="car-add">
             <form className="flex column align-center" onSubmit={onAddMail}>
 
-                <label htmlFor="from">To</label>
-                <input type="text" name="from"
-                    value={from} id="from"
+                <label htmlFor="send-to">To</label>
+                <input type="text" name="sendTo"
+                    value={sendTo} id="send-to"
                     onChange={handleChange}
                 />
 

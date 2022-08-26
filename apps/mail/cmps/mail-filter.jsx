@@ -27,6 +27,13 @@ export class MailFilter extends React.Component {
     render() {
         const { search } = this.state.filterBy
         return <section className="mail-filter">
+
+            <div className="header-left">
+            <img src="http://i.pinimg.com/originals/ae/47/fa/ae47fa9a8fd263aa364018517020552d.png" alt="" />
+            </div>
+            
+            <div className="header-middle">
+            <span className="material-icons"> search </span>
             <form onSubmit={this.onFilter}>
                 <label htmlFor="search-input"></label>
                 <input
@@ -37,8 +44,13 @@ export class MailFilter extends React.Component {
                     value={search}
                     onChange={this.handleChange}
                 />
-                <button>Search</button>
             </form>
+            </div>
+            
+            <div className="header-right">
+
+            </div>
+            
         </section>
     }
 }
