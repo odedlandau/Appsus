@@ -2,4 +2,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
+    height: fit-content;
 }
+
+/* .note-list {
+    columns: 7;
+    column-gap: 10px;
+    padding: 0 2rem;
+} */

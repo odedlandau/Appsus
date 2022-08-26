@@ -20,7 +20,7 @@ export function NotePreview({ note }) {
 
     const DynamicCmp = getNoteType(note.type)
 
-    return <section class="note-preview-full">
+    return <section className="note-preview-full">
         <DynamicCmp info={note.info} id={note.id} />
     </section>
 }

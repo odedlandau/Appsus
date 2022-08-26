@@ -15,11 +15,11 @@ nav a {
 }
 
 nav a:active {
-    color: purple;
+    color: rgb(0, 98, 128);
 }
 
 nav a.active {
-    color: darkblue;
+    color: rgb(0, 139, 12);
     font-weight: bold;
     text-decoration: overline;
 }
