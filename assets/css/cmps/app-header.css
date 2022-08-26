@@ -1,6 +1,7 @@
 header {
-    background: lightcyan;
-    border-bottom: 2px solid white;
+    background: var(--main-bg-color1);
+    border-bottom: 2px var(--color2);
+    height: 5vh;
 }
 
 .app-header {
