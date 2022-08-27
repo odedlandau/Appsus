@@ -5,6 +5,8 @@ import { SideBar } from '../cmps/side-bar.jsx'
 import { mailService } from '../services/mail.service.js'
 
 const { Link } = ReactRouterDOM
+const Router = ReactRouterDOM.HashRouter
+const { Route, Switch } = ReactRouterDOM
 
 export class MailApp extends React.Component {
     state = {
@@ -35,21 +37,29 @@ export class MailApp extends React.Component {
     }
 
     onSetFilter = (filterBy) => {
-        console.log('filterBy', filterBy);
         this.setState({ filterBy }, this.loadMails)
+    }
+
+    onIsStarred = (mailId) => {
+        mailService.toggleStarred(mailId).then(this.loadMails)
+    }
+
+    onIsImportant = (mailId) => {
+        mailService.toggleImportant(mailId).then(this.loadMails)
     }
 
     render() {
         const { mails } = this.state
-        const { onRemoveMail } = this
+        const { onRemoveMail, onIsStarred, onIsImportant } = this
         return <section className="mail-app">
             <MailFilter onSetFilter={this.onSetFilter} />
             <section className="main-body">
                 <SideBar />
-                {/* <Link to="/mail/add"><button>Compose +</button></Link> */}
-                <MailList mails={mails} onRemoveMail={onRemoveMail} />
+                <MailList mails={mails} onRemoveMail={onRemoveMail} onIsStarred={onIsStarred} onIsImportant={onIsImportant} />
             </section>
         </section>
+
+
 
     }
 }

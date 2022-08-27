@@ -24,7 +24,10 @@ const mails = [{
         email: 'account@asos.com',
         userName: 'ASOS'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: true,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -37,7 +40,10 @@ const mails = [{
         email: 'CloudPlatform-noreply@google.com',
         userName: 'Google Cloud '
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: true,
+    isImportant: true
 },
 {
     id: utilService.makeId(),
@@ -50,7 +56,10 @@ const mails = [{
         email: 'no-reply@dropbox.com',
         userName: 'Dropbox '
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -63,7 +72,10 @@ const mails = [{
         email: 'noreply@github.com',
         userName: 'GitHub'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: true
 },
 {
     id: utilService.makeId(),
@@ -76,7 +88,10 @@ const mails = [{
         email: 'msa@communication.microsoft.com',
         userName: 'Microsoft'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: true
 },
 {
     id: utilService.makeId(),
@@ -89,7 +104,10 @@ const mails = [{
         email: 'ebay@reply1.ebay.com',
         userName: 'eBay'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -102,7 +120,10 @@ const mails = [{
         email: 'interest5@mail.aliexpress.com',
         userName: 'AliExpress'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -115,7 +136,10 @@ const mails = [{
         email: 'outreach@hello.g2.com',
         userName: 'G2'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -128,7 +152,10 @@ const mails = [{
         email: 'tona@animaker.es',
         userName: 'Tona from Animaker 2.0'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -141,7 +168,10 @@ const mails = [{
         email: 'support@udacity.com',
         userName: 'Udacity'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -154,7 +184,10 @@ const mails = [{
         email: 'account@asos.com',
         userName: 'ASOS'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -167,7 +200,10 @@ const mails = [{
         email: 'CloudPlatform-noreply@google.com',
         userName: 'Google Cloud '
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -180,7 +216,10 @@ const mails = [{
         email: 'no-reply@dropbox.com',
         userName: 'Dropbox '
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -193,7 +232,10 @@ const mails = [{
         email: 'noreply@github.com',
         userName: 'GitHub'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -206,7 +248,10 @@ const mails = [{
         email: 'msa@communication.microsoft.com',
         userName: 'Microsoft'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -219,7 +264,10 @@ const mails = [{
         email: 'ebay@reply1.ebay.com',
         userName: 'eBay'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -232,7 +280,10 @@ const mails = [{
         email: 'interest5@mail.aliexpress.com',
         userName: 'AliExpress'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -245,7 +296,10 @@ const mails = [{
         email: 'outreach@hello.g2.com',
         userName: 'G2'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -258,7 +312,10 @@ const mails = [{
         email: 'tona@animaker.es',
         userName: 'Tona from Animaker 2.0'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 },
 {
     id: utilService.makeId(),
@@ -271,7 +328,10 @@ const mails = [{
         email: 'support@udacity.com',
         userName: 'Udacity'
     },
-    isSent: false
+    isSent: false,
+    isRead: true,
+    isStarred: false,
+    isImportant: false
 }
 
 ]

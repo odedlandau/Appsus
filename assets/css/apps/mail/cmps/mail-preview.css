@@ -54,3 +54,15 @@
     color: grey;
     margin-left: 5px;
 }
+
+.mail-preview-option .btn-remove:hover{
+    color: #c04b37;
+}
+
+.mail-preview-option .starred{
+    color: rgb(242, 213, 48);
+}
+
+.mail-preview-option .important{
+    color: rgb(242, 213, 48);
+}

@@ -1,9 +1,10 @@
 import { MailPreview } from "./mail-preview.jsx";
 
 
-export function MailList({ mails, onRemoveMail }) {
+export function MailList({ mails, onRemoveMail, onIsStarred,onIsImportant }) {
         return <section className="mail-list">
-        {mails.map(mail => <MailPreview key={mail.id} mail={mail} onRemoveMail={onRemoveMail} />)}
+        {mails.map(mail => <MailPreview key={mail.id} mail={mail} onRemoveMail={onRemoveMail} 
+        onIsStarred={onIsStarred} onIsImportant={onIsImportant}/>)}
 
         {/* {mails.map(mail =>
             <ul className="mail-preview flex column">

@@ -5,7 +5,10 @@ import { utilService } from '../../../services/util.service.js'
 export const mailService = {
     query,
     remove,
-    add
+    add,
+    getById,
+    toggleStarred,
+    toggleImportant
 }
 
 const KEY = 'mailsDB'
@@ -57,6 +60,46 @@ function _createMail(sendTo, subject, body) {
         },
         isSent: true
     }
+}
+
+function getById(mailId) {
+    if (!mailId) return Promise.resolve(null)
+    const mails = _loadFromStorage()
+    const mail = mails.find(mail => mailId === mail.id)
+    return Promise.resolve(mail)
+}
+
+function toggleStarred(mailId){
+    
+    return getById(mailId).then(mail => {
+        mail.isStarred = !mail.isStarred
+        updateCurrMail(mail)
+        return Promise.resolve(mail)
+    })
+}
+
+function toggleImportant(mailId){
+    return getById(mailId).then(mail => {
+        mail.isImportant = !mail.isImportant
+        updateCurrMail(mail)
+        return Promise.resolve(mail)
+    })
+}
+
+
+
+function updateCurrMail(currMail) {
+    let mails = _loadFromStorage()
+    mails = mails.map(mail => mail.id === currMail.id ? currMail : mail)
+    _saveToStorage(mails)
+    return Promise.resolve(currMail)
+   
+    // query().then(mails => mails.map(mail => {
+    //     if (currMail.id === mail.id) return currMail
+    //     return mail
+    // })).then(mails => {
+    //     _saveToStorage(mails)
+    // })
 }
 
 function _saveToStorage(mails) {
