@@ -2,7 +2,6 @@ import { AppHeader } from "./cmps/app-header.jsx"
 import { About } from "./views/about.jsx"
 import { Home } from "./views/home.jsx"
 import { MailApp } from "./apps/mail/views/mail-app.jsx"
-import { AddMail } from "./apps/mail/cmps/add-mail.jsx"
 import { NoteApp } from "./apps/note/views/note-app.jsx"
 import { BookApp } from "./apps/book/views/book-app.jsx"
 import { BookDetails } from "./apps/book/views/book-details.jsx";
