@@ -1,7 +1,7 @@
 header {
     background: var(--main-bg-color1);
     border-bottom: 2px var(--color2);
-    height: 5vh;
+    height: 10vh;
 }
 
 .app-header {
@@ -10,16 +10,18 @@ header {
     padding: 20px 0;
 }
 
+.app-header h3{
+    font-size: 2rem;
+}
+
 nav a {
     margin: .5em;
+    font-size: 1.4rem;
 }
 
-nav a:active {
-    color: rgb(0, 98, 128);
-}
+
 
 nav a.active {
-    color: rgb(0, 139, 12);
+    color:var(--color5);
     font-weight: bold;
-    text-decoration: overline;
 }

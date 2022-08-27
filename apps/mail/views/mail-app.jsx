@@ -1,5 +1,6 @@
 
 import { AddMail } from '../cmps/add-mail.jsx'
+import { MailDetails } from '../cmps/mail-details.jsx'
 import { MailFilter } from '../cmps/mail-filter.jsx'
 import { MailList } from '../cmps/mail-list.jsx'
 import { SideBar } from '../cmps/side-bar.jsx'
@@ -31,7 +32,7 @@ export class MailApp extends React.Component {
                 console.log('Removed!')
                 const mails = this.state.mails.filter(mail => mail.id !== mailId)
                 this.setState({ mails })
-                // showSuccessMsg('Mail removed')
+                
 
             })
 
@@ -68,10 +69,10 @@ export class MailApp extends React.Component {
             <section className="main-body">
                 <SideBar onSetFolder={onSetFolder}/>
                 
-                <Route path="/mail/add" component={AddMail}/>
+                <Route exact path="/mail/add" component={AddMail}/>
+                {/* <Route path="/mail/:mailId" component={MailDetails} /> */}
 
 
-                
                 <MailList mails={mails} onRemoveMail={onRemoveMail} onIsStarred={onIsStarred}
                  onIsImportant={onIsImportant} onIsRead={onIsRead}/>
                  

@@ -72,8 +72,8 @@ function _createMail(sendTo, subject, body) {
         body: body,
         sentAt: 1551133930594,
         user: {
-            email: sendTo,
-            userName: 'Oded Landau'
+            email: '',
+            userName: sendTo
         },
         isRead: true,
         isSent: true,
