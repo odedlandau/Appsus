@@ -3,7 +3,7 @@ export function Home() {
 
     return (
         <React.Fragment>
-            <img src="../assets/img/home.jpg" className="background-img" />
+            <img src="/assets/img/home.jpg" className="background-img" />
 
             <section className='home'>
                 <h1 className='welcome'>Appsus</h1>
