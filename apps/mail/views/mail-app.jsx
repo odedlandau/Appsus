@@ -4,9 +4,8 @@ import { MailList } from '../cmps/mail-list.jsx'
 import { SideBar } from '../cmps/side-bar.jsx'
 import { mailService } from '../services/mail.service.js'
 
-const { Link } = ReactRouterDOM
 const Router = ReactRouterDOM.HashRouter
-const { Route, Switch } = ReactRouterDOM
+const { Route, Switch,Link } = ReactRouterDOM
 
 export class MailApp extends React.Component {
     state = {
@@ -67,8 +66,10 @@ export class MailApp extends React.Component {
             <MailFilter onSetFilter={this.onSetFilter} />
             <section className="main-body">
                 <SideBar onSetFolder={onSetFolder}/>
+                
                 <MailList mails={mails} onRemoveMail={onRemoveMail} onIsStarred={onIsStarred}
                  onIsImportant={onIsImportant} onIsRead={onIsRead}/>
+                 
             </section>
         </section>
 

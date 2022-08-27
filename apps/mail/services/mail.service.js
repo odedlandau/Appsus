@@ -9,7 +9,9 @@ export const mailService = {
     getById,
     toggleStarred,
     toggleImportant,
-    changeToRead
+    changeToRead,
+    getUnreadMails
+
 }
 
 const KEY = 'mailsDB'
@@ -24,15 +26,15 @@ function query(filterBy, folder) {
     if (filterBy) {
         let { search } = filterBy
         mails = mails.filter(mail => (
-            mail.subject.includes(search) ||
-            mail.user.userName.includes(search)
+            mail.subject.toLowerCase().includes(search.toLowerCase()) ||
+            mail.user.userName.toLowerCase().includes(search.toLowerCase())
         ))
     }
 
     switch (folder) {
         case 'inbox':
             mails = mails.filter(mail => (!mail.isSent))
-          break
+            break
         case 'starred':
             mails = mails.filter(mail => (mail.isStarred))
             break
@@ -68,13 +70,15 @@ function _createMail(sendTo, subject, body) {
         subject: subject,
         desc: '',
         body: body,
-        isRead: false,
         sentAt: 1551133930594,
         user: {
             email: sendTo,
             userName: 'Oded Landau'
         },
-        isSent: true
+        isRead: true,
+        isSent: true,
+        isStarred: false,
+        isImportant: false
     }
 }
 
@@ -115,6 +119,13 @@ function updateCurrMail(currMail) {
     mails = mails.map(mail => mail.id === currMail.id ? currMail : mail)
     _saveToStorage(mails)
     return Promise.resolve(currMail)
+}
+
+function getUnreadMails() {
+    const mails =  _loadFromStorage()
+    let count = 0
+    mails.forEach(mail => { if (!mail.isRead) count++ })
+    return count
 }
 
 function _saveToStorage(mails) {

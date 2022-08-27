@@ -1,8 +1,8 @@
+import { utilService } from "../../../services/util.service.js";
 
 export function MailPreview({ mail, onRemoveMail, onIsStarred, onIsImportant, onIsRead}) {
     const mailPreviewClass = !mail.isRead ? 'unread' : ''
-    console.log(mailPreviewClass);
-
+    const date = utilService.formatTime(mail.sentAt)
     return <section className={`mail-preview ${mailPreviewClass}`}>
 
         <div className="mail-preview-option">
@@ -29,7 +29,7 @@ export function MailPreview({ mail, onRemoveMail, onIsStarred, onIsImportant, on
             </h4>
         </div>
 
-        <p className="mail-preview-time" onClick={() => onIsRead(mail.id)}>{mail.sentAt}</p>
+        <p className="mail-preview-time" onClick={() => onIsRead(mail.id)}>{date}</p>
         {/* </div> */}
 
 
