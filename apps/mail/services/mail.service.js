@@ -8,12 +8,13 @@ export const mailService = {
     add,
     getById,
     toggleStarred,
-    toggleImportant
+    toggleImportant,
+    changeToRead
 }
 
 const KEY = 'mailsDB'
 
-function query(filterBy) {
+function query(filterBy, folder) {
     let mails = _loadFromStorage()
     if (!mails) {
         mails = demoDataService.getMails()
@@ -26,6 +27,21 @@ function query(filterBy) {
             mail.subject.includes(search) ||
             mail.user.userName.includes(search)
         ))
+    }
+
+    switch (folder) {
+        case 'inbox':
+            mails = mails.filter(mail => (!mail.isSent))
+          break
+        case 'starred':
+            mails = mails.filter(mail => (mail.isStarred))
+            break
+        case 'important':
+            mails = mails.filter(mail => (mail.isImportant))
+            break
+        case 'sent':
+            mails = mails.filter(mail => (mail.isSent))
+            break
     }
 
     return Promise.resolve(mails)
@@ -69,8 +85,8 @@ function getById(mailId) {
     return Promise.resolve(mail)
 }
 
-function toggleStarred(mailId){
-    
+function toggleStarred(mailId) {
+
     return getById(mailId).then(mail => {
         mail.isStarred = !mail.isStarred
         updateCurrMail(mail)
@@ -78,7 +94,7 @@ function toggleStarred(mailId){
     })
 }
 
-function toggleImportant(mailId){
+function toggleImportant(mailId) {
     return getById(mailId).then(mail => {
         mail.isImportant = !mail.isImportant
         updateCurrMail(mail)
@@ -86,20 +102,19 @@ function toggleImportant(mailId){
     })
 }
 
-
+function changeToRead(mailId) {
+    return getById(mailId).then(mail => {
+        mail.isRead = true
+        updateCurrMail(mail)
+        return Promise.resolve(mail)
+    })
+}
 
 function updateCurrMail(currMail) {
     let mails = _loadFromStorage()
     mails = mails.map(mail => mail.id === currMail.id ? currMail : mail)
     _saveToStorage(mails)
     return Promise.resolve(currMail)
-   
-    // query().then(mails => mails.map(mail => {
-    //     if (currMail.id === mail.id) return currMail
-    //     return mail
-    // })).then(mails => {
-    //     _saveToStorage(mails)
-    // })
 }
 
 function _saveToStorage(mails) {

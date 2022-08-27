@@ -66,3 +66,7 @@
 .mail-preview-option .important{
     color: rgb(242, 213, 48);
 }
+
+.mail-preview.unread{
+    background-color: rgb(238, 238, 238);
+}

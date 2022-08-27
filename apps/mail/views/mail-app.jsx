@@ -11,7 +11,8 @@ const { Route, Switch } = ReactRouterDOM
 export class MailApp extends React.Component {
     state = {
         mails: [],
-        filterBy: null
+        filterBy: null,
+        folder:'inbox'
     }
 
     componentDidMount() {
@@ -20,7 +21,7 @@ export class MailApp extends React.Component {
     }
 
     loadMails = () => {
-        mailService.query(this.state.filterBy)
+        mailService.query(this.state.filterBy, this.state.folder)
             .then((mails) => this.setState({ mails }))
     }
 
@@ -47,15 +48,27 @@ export class MailApp extends React.Component {
     onIsImportant = (mailId) => {
         mailService.toggleImportant(mailId).then(this.loadMails)
     }
+    
+    onIsRead = (mailId) => {
+        mailService.changeToRead(mailId).then(this.loadMails)
+    }
+
+    onSetFolder = (folder) => {
+        this.setState({ folder }, this.loadMails)
+
+    }
+
+    
 
     render() {
         const { mails } = this.state
-        const { onRemoveMail, onIsStarred, onIsImportant } = this
+        const { onRemoveMail, onIsStarred, onIsImportant, onIsRead, onSetFolder } = this
         return <section className="mail-app">
             <MailFilter onSetFilter={this.onSetFilter} />
             <section className="main-body">
-                <SideBar />
-                <MailList mails={mails} onRemoveMail={onRemoveMail} onIsStarred={onIsStarred} onIsImportant={onIsImportant} />
+                <SideBar onSetFolder={onSetFolder}/>
+                <MailList mails={mails} onRemoveMail={onRemoveMail} onIsStarred={onIsStarred}
+                 onIsImportant={onIsImportant} onIsRead={onIsRead}/>
             </section>
         </section>
 

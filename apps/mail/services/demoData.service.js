@@ -18,14 +18,13 @@ const mails = [{
     subject: 'We’re updating our privacy notice',
     desc: ' - To make sure we’re as transparent and open',
     body: 'To make sure we’re as transparent and open as possible about the use of your data, we’ve made some changes. We want to make it clear to you what info we need, why we need it and what we do with it, so we’ll be updating our privacy notice on August 1st, 2022 to reflect these changes.',
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'account@asos.com',
         userName: 'ASOS'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: true,
     isImportant: false
 },
@@ -34,14 +33,13 @@ const mails = [{
     subject: 'Account confirmation: Your Google Cloud free trial',
     desc: ' - Learn the fundamentals with this tutorial ',
     body: 'Welcome to your Google Cloud free trial. Beginning today, you have $300 USD in credit to spend on Google Cloud. With your free trial, you can:',
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'CloudPlatform-noreply@google.com',
         userName: 'Google Cloud '
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: true,
     isImportant: true
 },
@@ -50,14 +48,13 @@ const mails = [{
     subject: 'Vicky and 13 others made changes in your shared folders',
     desc: ' - Activity in Shared Folders',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'no-reply@dropbox.com',
         userName: 'Dropbox '
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -66,14 +63,13 @@ const mails = [{
     subject: '🚀 Your GitHub launch code',
     desc: ' - Heres your GitHub launch code',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'noreply@github.com',
         userName: 'GitHub'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: true
 },
@@ -82,14 +78,13 @@ const mails = [{
     subject: 'Updates to our terms of use',
     desc: ' - You’re receiving this email because we are updating the Microsoft ',
     body: 'Hello, You’re receiving this email because we are updating the Microsoft Services Agreement, which applies to one or more Microsoft products or services you use. We’re making these updates to clarify our terms and ensure that they remain transparent for you, as well as to cover new Microsoft products, services and features. The Microsoft Services Agreement is an agreement between you and Microsoft (or one of its affiliates) that governs your use of Microsoft consumer online products and services.',
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'msa@communication.microsoft.com',
         userName: 'Microsoft'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: true
 },
@@ -98,14 +93,13 @@ const mails = [{
     subject: 'The perfect place to find your new laptop, oded!',
     desc: ' - All the best laptops in one place!',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'ebay@reply1.ebay.com',
         userName: 'eBay'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -114,14 +108,13 @@ const mails = [{
     subject: 'Recommended for you!',
     desc: ' - Items to pair with your Mens Socks',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'interest5@mail.aliexpress.com',
         userName: 'AliExpress'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -130,14 +123,13 @@ const mails = [{
     subject: 'Your June Digest',
     desc: ' - The average pro uses 10 software products ',
     body: 'The average pro uses 10 software products; youve only told us about 0 of yours. Complete your profile by adding more products to your stack - you could be eligible for exclusive review incentives. Each month we select a Charity of the Month and offer our support by donating $10 on behalf of each person that leaves a review via our Gives landing page.',
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'outreach@hello.g2.com',
         userName: 'G2'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -146,14 +138,13 @@ const mails = [{
     subject: 'Unveiling Animaker 3.0',
     desc: ' - A complete reimagination of Animaker 2.0',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'tona@animaker.es',
         userName: 'Tona from Animaker 2.0'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -162,14 +153,13 @@ const mails = [{
     subject: 'Gain the skills you need to land a new role',
     desc: ' - Youve taken the first step towards advancing your career',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'support@udacity.com',
         userName: 'Udacity'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -178,14 +168,13 @@ const mails = [{
     subject: 'We’re updating our privacy notice',
     desc: ' - To make sure we’re as transparent and open',
     body: 'To make sure we’re as transparent and open as possible about the use of your data, we’ve made some changes. We want to make it clear to you what info we need, why we need it and what we do with it, so we’ll be updating our privacy notice on August 1st, 2022 to reflect these changes.',
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'account@asos.com',
         userName: 'ASOS'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -194,14 +183,13 @@ const mails = [{
     subject: 'Account confirmation: Your Google Cloud free trial',
     desc: ' - Learn the fundamentals with this tutorial ',
     body: 'Welcome to your Google Cloud free trial. Beginning today, you have $300 USD in credit to spend on Google Cloud. With your free trial, you can:',
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'CloudPlatform-noreply@google.com',
         userName: 'Google Cloud '
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -210,14 +198,13 @@ const mails = [{
     subject: 'Vicky and 13 others made changes in your shared folders',
     desc: ' - Activity in Shared Folders',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'no-reply@dropbox.com',
         userName: 'Dropbox '
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -226,14 +213,13 @@ const mails = [{
     subject: '🚀 Your GitHub launch code',
     desc: ' - Heres your GitHub launch code',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'noreply@github.com',
         userName: 'GitHub'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -242,14 +228,13 @@ const mails = [{
     subject: 'Updates to our terms of use',
     desc: ' - You’re receiving this email because we are updating the Microsoft ',
     body: 'Hello, You’re receiving this email because we are updating the Microsoft Services Agreement, which applies to one or more Microsoft products or services you use. We’re making these updates to clarify our terms and ensure that they remain transparent for you, as well as to cover new Microsoft products, services and features. The Microsoft Services Agreement is an agreement between you and Microsoft (or one of its affiliates) that governs your use of Microsoft consumer online products and services.',
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'msa@communication.microsoft.com',
         userName: 'Microsoft'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -258,14 +243,13 @@ const mails = [{
     subject: 'The perfect place to find your new laptop, oded!',
     desc: ' - All the best laptops in one place!',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'ebay@reply1.ebay.com',
         userName: 'eBay'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -274,14 +258,13 @@ const mails = [{
     subject: 'Recommended for you!',
     desc: ' - Items to pair with your Mens Socks',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'interest5@mail.aliexpress.com',
         userName: 'AliExpress'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -290,14 +273,13 @@ const mails = [{
     subject: 'Your June Digest',
     desc: ' - The average pro uses 10 software products ',
     body: 'The average pro uses 10 software products; youve only told us about 0 of yours. Complete your profile by adding more products to your stack - you could be eligible for exclusive review incentives. Each month we select a Charity of the Month and offer our support by donating $10 on behalf of each person that leaves a review via our Gives landing page.',
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'outreach@hello.g2.com',
         userName: 'G2'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -306,14 +288,13 @@ const mails = [{
     subject: 'Unveiling Animaker 3.0',
     desc: ' - A complete reimagination of Animaker 2.0',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'tona@animaker.es',
         userName: 'Tona from Animaker 2.0'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 },
@@ -322,14 +303,13 @@ const mails = [{
     subject: 'Gain the skills you need to land a new role',
     desc: ' - Youve taken the first step towards advancing your career',
     body: utilService.makeLorem(),
-    isRead: false,
     sentAt: 1551133930594,
     user: {
         email: 'support@udacity.com',
         userName: 'Udacity'
     },
     isSent: false,
-    isRead: true,
+    isRead: false,
     isStarred: false,
     isImportant: false
 }

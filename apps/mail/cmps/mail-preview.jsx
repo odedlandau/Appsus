@@ -1,7 +1,9 @@
 
-export function MailPreview({ mail, onRemoveMail, onIsStarred, onIsImportant }) {
+export function MailPreview({ mail, onRemoveMail, onIsStarred, onIsImportant, onIsRead}) {
+    const mailPreviewClass = !mail.isRead ? 'unread' : ''
+    console.log(mailPreviewClass);
 
-    return <section className="mail-preview">
+    return <section className={`mail-preview ${mailPreviewClass}`}>
 
         <div className="mail-preview-option">
             <span className="material-icons btn-remove" onClick={() => onRemoveMail(mail.id)}> delete </span>
@@ -13,13 +15,13 @@ export function MailPreview({ mail, onRemoveMail, onIsStarred, onIsImportant }) 
             {(mail.isImportant) ?
                 <span className="material-icons important" onClick={() => onIsImportant(mail.id)}> label_important </span> :
                 <span className="material-icons" onClick={() => onIsImportant(mail.id)}> label_important </span>}
-
-           
+  
         </div>
 
-        <h3 className="mail-preview-title">{mail.user.userName}</h3>
+        {/* <div className="mail-previw-container" onClick={() => onIsRead(mail.id)} >         */}
+        <h3 className="mail-preview-title" onClick={() => onIsRead(mail.id)}>{mail.user.userName}</h3>
 
-        <div className="mail-preview-message">
+        <div className="mail-preview-message" onClick={() => onIsRead(mail.id)}>
             <h4>{mail.subject}
                 <span className="mail-preview-desc">
                     {mail.desc}
@@ -27,7 +29,8 @@ export function MailPreview({ mail, onRemoveMail, onIsStarred, onIsImportant }) 
             </h4>
         </div>
 
-        <p className="mail-preview-time">{mail.sentAt}</p>
+        <p className="mail-preview-time" onClick={() => onIsRead(mail.id)}>{mail.sentAt}</p>
+        {/* </div> */}
 
 
 

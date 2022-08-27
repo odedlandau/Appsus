@@ -1,11 +1,10 @@
 
 
 const { Link } = ReactRouterDOM
-export class SideBar extends React.Component {
+export function SideBar({onSetFolder }) {
 
-
-
-    render() {
+    
+            
         return <section className="side-bar">
             <Link to="/mail/add">
                 <button className="side-bar-compose">
@@ -16,22 +15,22 @@ export class SideBar extends React.Component {
 
             {/* <button>Compose +</button></Link> */}
 
-            <div className="side-bar-option">
+            <div className="side-bar-option" onClick={() => onSetFolder('inbox')}>
                 <span className="material-icons"> inbox </span>
                 <h3>Inbox</h3>
             </div>
 
-            <div className="side-bar-option">
+            <div className="side-bar-option" onClick={() => onSetFolder('starred')}>
                 <span className="material-icons"> star </span>
                 <h3>Starred</h3>
             </div>
 
-            <div className="side-bar-option">
+            <div className="side-bar-option" onClick={() => onSetFolder('important')}>
                 <span className="material-icons"> label_important </span>
                 <h3>Important</h3>
             </div>
 
-            <div className="side-bar-option">
+            <div className="side-bar-option" onClick={() => onSetFolder('sent')}>
                 <span className="material-icons"> near_me </span>
                 <h3>Sent</h3>
             </div>
@@ -43,7 +42,5 @@ export class SideBar extends React.Component {
 
 
         </section >
-    }
-
-
+    
 }
