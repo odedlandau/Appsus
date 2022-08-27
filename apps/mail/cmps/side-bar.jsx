@@ -6,12 +6,12 @@ export function SideBar({ onSetFolder }) {
 
 
     return <section className="side-bar">
-        {/* <Link to="/mail/add"> */}
+        <Link to="/mail/add">
             <button className="side-bar-compose" >
                 <span className="material-icons"> add </span>
                 Compose
             </button>
-        {/* </Link> */}
+        </Link>
 
         {/* <button>Compose +</button></Link> */}
 
