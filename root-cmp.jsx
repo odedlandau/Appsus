@@ -16,7 +16,7 @@ export function App() {
         <section className="app">
             <AppHeader />
             <Switch>
-                <Route path="/mail/add" component={AddMail} />
+               
                 <Route path="/mail" component={MailApp} />
                 <Route path="/note" component={NoteApp} />
                 <Route path="/book/:bookId" component={BookDetails} />

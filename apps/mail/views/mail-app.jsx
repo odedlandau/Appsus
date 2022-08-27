@@ -1,4 +1,5 @@
 
+import { AddMail } from '../cmps/add-mail.jsx'
 import { MailFilter } from '../cmps/mail-filter.jsx'
 import { MailList } from '../cmps/mail-list.jsx'
 import { SideBar } from '../cmps/side-bar.jsx'
@@ -67,8 +68,14 @@ export class MailApp extends React.Component {
             <section className="main-body">
                 <SideBar onSetFolder={onSetFolder}/>
                 
+                <Route path="/mail/add" component={AddMail}/>
+
+
+                
                 <MailList mails={mails} onRemoveMail={onRemoveMail} onIsStarred={onIsStarred}
                  onIsImportant={onIsImportant} onIsRead={onIsRead}/>
+                 
+                 
                  
             </section>
         </section>

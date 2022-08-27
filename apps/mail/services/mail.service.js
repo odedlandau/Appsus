@@ -122,7 +122,7 @@ function updateCurrMail(currMail) {
 }
 
 function getUnreadMails() {
-    const mails =  _loadFromStorage()
+    const mails = _loadFromStorage() || demoDataService.getMails()
     let count = 0
     mails.forEach(mail => { if (!mail.isRead) count++ })
     return count
