@@ -20,6 +20,6 @@
 
 @media (min-width: 1020px) {
     .main-layout>*:not(.full) {
-        max-width: 980px;
+        max-width: 1060px;
     }
 }

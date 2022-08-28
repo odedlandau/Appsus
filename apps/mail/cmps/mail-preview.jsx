@@ -1,5 +1,7 @@
 import { utilService } from "../../../services/util.service.js";
 
+const {Link} = ReactRouterDOM
+
 export function MailPreview({ mail, onRemoveMail, onIsStarred, onIsImportant, onIsRead}) {
     const mailPreviewClass = !mail.isRead ? 'unread' : ''
     const date = utilService.formatTime(mail.sentAt)
@@ -17,20 +19,26 @@ export function MailPreview({ mail, onRemoveMail, onIsStarred, onIsImportant, on
                 <span className="material-icons" onClick={() => onIsImportant(mail.id)}> label_important </span>}
   
         </div>
-
-        {/* <div className="mail-previw-container" onClick={() => onIsRead(mail.id)} >         */}
+         
+        
         <h3 className="mail-preview-title" onClick={() => onIsRead(mail.id)}>{mail.user.userName}</h3>
-
+        
+            
         <div className="mail-preview-message" onClick={() => onIsRead(mail.id)}>
+        <Link to={"/mail/" + mail.id}>   
             <h4>{mail.subject}
                 <span className="mail-preview-desc">
                     {mail.desc}
                 </span>
             </h4>
+            </Link>
         </div>
+        
+        
 
         <p className="mail-preview-time" onClick={() => onIsRead(mail.id)}>{date}</p>
-        {/* </div> */}
+        
+        
 
 
 

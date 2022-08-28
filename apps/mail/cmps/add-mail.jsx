@@ -33,21 +33,29 @@ export class AddMail extends React.Component {
         const { sendTo, subject, body } = this.state.mail
         const { onAddMail, handleChange } = this
         return <section className="add-mail">
+
+            <h3>New Message</h3>
             <form onSubmit={onAddMail}>
 
-                <label htmlFor="send-to">To</label>
-                <input type="text" name="sendTo"
-                    value={sendTo} id="send-to"
-                    onChange={handleChange}
-                />
-
+                <div className="compose-row">
+                    <label htmlFor="send-to">To</label>
+                    <input type="text" name="sendTo"
+                        value={sendTo} id="send-to"
+                        onChange={handleChange}
+                    />
+                    <hr />
+                </div>
+                
+                <div className="compose-row">
                 <label htmlFor="subject">subject:</label>
                 <input type="text" name="subject"
                     value={subject} id="subject"
                     onChange={handleChange}
                 />
+                <hr />
+                </div>
 
-                <label htmlFor="body">body:</label>
+                <label htmlFor="body"></label>
                 <textarea id="body" name="body" value={body} rows="6" cols="50" onChange={handleChange}>
 
                 </textarea>
