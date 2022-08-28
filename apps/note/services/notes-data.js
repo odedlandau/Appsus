@@ -17,11 +17,11 @@ function getNotes() {
                 id: "n102",
                 type: "note-img",
                 info: {
-                    url: "http://some-img/me",
+                    url: "https://pngimg.com/uploads/husky/husky_PNG34.png",
                     title: "Bobi and Me"
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    backgroundColor: "#b7c7f1"
                 }
             },
             {

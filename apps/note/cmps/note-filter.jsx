@@ -3,7 +3,7 @@ export class NoteFilter extends React.Component {
 
     state = {
         filterBy: {
-            type: '',
+            type: null,
         },
     }
 

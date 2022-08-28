@@ -5,3 +5,4 @@ export function NoteImg({ info }) {
         {info.title && <h1>{info.title}</h1>}
     </React.Fragment>
 }
+

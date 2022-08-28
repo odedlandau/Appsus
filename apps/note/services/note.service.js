@@ -7,39 +7,50 @@ export const noteService = {
     getById,
     removeNote,
     addNote,
+    update
 }
 
 const KEY = "notesDB"
 const gNotes = notesData.getNotes()
 
+function update(editNote) {
+    let notes = _loadFromStorage()
+    let noteIdx = notes.findIndex(note => editNote.id === note.id)
+    notes.splice(noteIdx, 1, editNote)
+    _saveToStorage(notes)
+    return Promise.resolve(editNote)
+}
 
-// function query(filterBy) {
-//     let notes = _loadFromStorage()
-//     if (!notes) {
-//         notes = gNotes
-//         _saveToStorage(notes)
-//     }
-//     if (filterBy) {
-//         let { type } = filterBy
-//         console.log('filterBy from service', filterBy);
-//         if (!type) type = 'note-txt';
-//         notes = notes.filter(note => (
-//             note.type.includes(type)
-
-//         ))
-//     }
-
-//     return Promise.resolve(notes)
-// }
-
-function query() {
-    let notes = storageService.loadFromStorage(KEY)
+function query(filterBy) {
+    let notes = _loadFromStorage()
     if (!notes) {
         notes = gNotes
-        storageService.saveToStorage(KEY, notes)
+        _saveToStorage(notes)
     }
+    if (filterBy) {
+        let { type } = filterBy
+        console.log('filterBy from service', filterBy);
+        if (!type) type = 'note-txt';
+        notes = notes.filter(note => (
+            note.type.includes(type)
+
+        ))
+    }
+    // if (filterBy.type) {
+    //     notes = notes.filter(note => note.type === filterBy.type)
+    // }
+
     return Promise.resolve(notes)
 }
+
+// function query() {
+//     let notes = storageService.loadFromStorage(KEY)
+//     if (!notes) {
+//         notes = gNotes
+//         storageService.saveToStorage(KEY, notes)
+//     }
+//     return Promise.resolve(notes)
+// }
 
 function getById(noteId) {
     if (!noteId) return Promise.resolve(null)
@@ -48,15 +59,47 @@ function getById(noteId) {
     return Promise.resolve(note)
 }
 
-function addNote(note) {
+// function addNote(note) {
+//     note.id = utilService.makeId()
+//     const notes = _loadFromStorage()
+//     if (note.type === 'note-todos') {
+//         let todos = note.info.todos.split(',')
+//         todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null }))
+//         note.info.todos = todos
+//     }
+//     notes.unshift(note)
+//     _saveToStorage(notes)
+//     return Promise.resolve()
+// }
+
+function addNote(newNote, noteType) {
+    if (!newNote) return
+    let note = {}
     note.id = utilService.makeId()
-    const notes = _loadFromStorage()
-    if (note.type === 'note-todos') {
-        let todos = note.info.todos.split(',')
-        todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null }))
-        note.info.todos = todos
+    note.type = noteType
+    note.info = {}
+    note.info.title = newNote.title
+    console.log('note.info from keepService:', note.info)
+    const { content } = newNote
+    switch (noteType) {
+        case 'note-txt':
+            note.info.txt = content
+            break
+        case 'note-img':
+            note.info.url = content
+            break
+        case 'note-video':
+            note.info.url = content
+            break
+        case 'note-todos':
+            note.info.todos = content.split(',').map(todo => ({ txt: todo, doneAt: null }))
+            break
+        default:
+            console.warn('Unknown note type:', noteType)
+            break
     }
-    notes.unshift(note)
+    let notes = _loadFromStorage()
+    notes = [note, ...notes]
     _saveToStorage(notes)
     return Promise.resolve()
 }

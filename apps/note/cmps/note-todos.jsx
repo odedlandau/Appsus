@@ -19,3 +19,14 @@ export function NoteTodos({ info, id, onToggleTodo }) {
         </ul>
     </article>
 }
+
+function NoteTodo({ note }) {
+    return (
+        <React.Fragment>
+            <h2>NoteTodo</h2>
+            {note.info.title &&
+                <h2 className="note-title">{note.info.title}</h2>}
+            {note.info.todos.map((todo, idx) => { <p key={idx}>{todo}</p> })}
+        </React.Fragment>
+    )
+}
